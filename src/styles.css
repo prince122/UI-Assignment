@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "node_modules/bootstrap/dist/css/bootstrap.css" */
+
+.ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after {
+    content: image-set("assets/images/right-arrow.svg" 1x) !important
+}
+
+.ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
+   /* content: '<<' !important; */
+
+   content: image-set("assets/images/left-arrow.svg" 1x) !important;
+
+   
+}

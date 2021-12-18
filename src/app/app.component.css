@@ -1,0 +1,37 @@
+.header-text{
+    color: gray;
+}
+.type{
+    margin-left: 0%;
+}
+.form-control:focus {
+    border-color: black;
+    box-shadow: none;
+   
+}
+.form-control{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+}
+.form-check-input:focus{
+    box-shadow: none;
+}
+.form-check-input:checked{
+ background-color: black;
+ border-color: black;
+}  
+thead{
+    background-color: #dcdcdc;
+}
+
+.Table-Container{
+    padding: 15px;
+    margin-top: 2%;
+}
+.Filter-Container{
+    padding: 15px;
+    margin-top: 2%;
+}

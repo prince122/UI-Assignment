@@ -1,0 +1,87 @@
+<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+  <h1>Filter <span class="header-text">airports</span></h1>
+
+
+  <div class="Filter-Container row col-12 col-sm-12 col-md-12 col-lg-12">
+
+    <div class="col-8 col-sm-8 col-md-8 col-lg-8 row type">
+      <h2>Types</h2>
+      <div class="form-check col-8 col-sm-8 col-md-8 col-lg-2">
+        <input class="form-check-input" type="checkbox" value="" (change)="OnFilter()" id="flexCheckChecked"
+          [(ngModel)]="SmallFilter">
+        <label class="form-check-label" for="flexCheckChecked">
+          Small
+        </label>
+      </div>
+      <div class="form-check col-8 col-sm-8 col-md-8 col-lg-2">
+        <input class="form-check-input" type="checkbox" value="" (change)="OnFilter()" id="flexCheckChecked"
+          [(ngModel)]="MediumFilter">
+        <label class="form-check-label" for="flexCheckChecked">
+          Medium
+        </label>
+      </div>
+      <div class="form-check col-8 col-sm-8 col-md-8 col-lg-2">
+        <input class="form-check-input" type="checkbox" value="" (change)="OnFilter()" id="flexCheckChecked"
+          [(ngModel)]="LargeFilter">
+        <label class="form-check-label" for="flexCheckChecked">
+          Large
+        </label>
+      </div>
+
+      <div class="form-check col-8 col-sm-8 col-md-8 col-lg-2">
+        <input class="form-check-input" type="checkbox" value="" (change)="OnFilter()" id="flexCheckChecked"
+          [(ngModel)]="HeliportFilter">
+        <label class="form-check-label" for="flexCheckChecked">
+          Heliport
+        </label>
+      </div>
+
+      <div class="form-check col-8 col-sm-8 col-md-8 col-lg-2">
+        <input class="form-check-input" type="checkbox" value="" (change)="OnFilter()" id="flexCheckChecked"
+          [(ngModel)]="CloseFilter">
+        <label class="form-check-label" for="flexCheckChecked">
+          Closed
+        </label>
+      </div>
+    </div>
+    <div class="float-right col-4 col-sm-4 col-md-4 col-lg-4">
+      <h2>Filter by search</h2>
+      <input class="form-control" type="text" [(ngModel)]="Search" (keyup)="OnSearch()" placeholder="Search here..">
+    </div>
+  </div>
+
+  <div class="Table-Container">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col">Name </th>
+          <th scope="col">ICAO</th>
+          <th scope="col">IATA</th>
+          <th scope="col">Elev.</th>
+          <th scope="col">Lat.</th>
+          <th scope="col">Long.</th>
+          <th scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let data of AirportRecord | paginate : { itemsPerPage:ItemPerPage , currentPage: cp,totalItems: AirportRecord.length} | stringFilter: Search"> -->
+          <tr *ngFor="let data of AirportRecord | paginate : { itemsPerPage:ItemPerPage , currentPage: cp,totalItems: AirportRecord.length}">
+          <td>{{data.name}}</td>
+          <td>{{data.icao}}</td>
+          <td>{{data.iata}}</td>
+          <td>{{data.elevation}}</td>
+          <td>{{data.latitude}}</td>
+          <td>{{data.longitude}}</td>
+          <td>{{data.type}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="cp = $event" max-size="4" [directionLinks]="true" [autoHide]="false"
+      [responsive]="true" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+      [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+      [screenReaderPageLabel]="labels.screenReaderPageLabel"
+      [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"></pagination-controls>
+
+  </div>
+</div>
